@@ -1,6 +1,15 @@
 <template>
 <div class="title">
   <h1>Lista de productos</h1>
+  <button class="btnh" @click="mostrarHistorial = !mostrarHistorial">
+  {{ mostrarHistorial ? 'Ocultar' : 'Ver' }} Historial 🧾
+</button>
+
+<Historial v-if="mostrarHistorial" @cerrar="mostrarHistorial = false" />
+
+
+
+
    <button @click="mostrarCarrito = !mostrarCarrito">
     {{ mostrarCarrito ? 'Ocultar' : 'Ver' }} Carrito 🛒
   </button>
@@ -14,6 +23,7 @@
     @agregar="agregarAlCarrito"
     
     />
+  
   
   </div>
 
@@ -39,10 +49,12 @@
   </div>
 </template>
 <script>
+import HistorialVue from './components/Historial.vue';
 
 import Producto from './components/Producto.vue';
+import Historial from './components/Historial.vue';
 export default {
-  components: {Producto},
+  components: {Producto, Historial},
   data(){
     return{
       productos:[
@@ -56,13 +68,17 @@ export default {
         {nombre:'Camisetas',precio:15}
       ],
       carrito:[],
-      mostrarCarrito: false
+      mostrarCarrito: false,
+      mostrarHistorial: false //
+      
     };
+ 
 
   },
   methods:{
     agregarAlCarrito(producto){
       this.carrito.push(producto);
+    
     },
       cerrarModal() {
       this.mostrarCarrito = false;
@@ -115,11 +131,16 @@ export default {
 <style scoped>
 .title{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20px;
+
+  
+
  
 }@media (max-width: 600px) {
   .title {
+
     flex-direction: column;
     text-align: center;
    
@@ -127,21 +148,32 @@ export default {
     
   }.title button{
     position:relative;
-    top: -1rem;
+    top: 5px;
     margin: auto;
     width: 200px;
+  }.title .btnh{
+    position: relative;
+    top: -5px;
+    background-color: aquamarine;
   }
 }
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}.btnh{
+  cursor: pointer;
+  background-color: #364d97;
+  position: relative;
+  top: -3px;
+}.btnh:hover{
+  background-color: #3498db;
 }
 button {
   position: relative;
-  top: 40px;
+  top: 4px;width: 250px;
   height: 40px;
-  background-color: #42b983;
+  background-color: #90964f;
   color: white;
   border: none;
   
