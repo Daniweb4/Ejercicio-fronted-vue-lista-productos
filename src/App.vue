@@ -33,8 +33,9 @@
     <div class="modal-content">
       <h2>🛒 Carrito</h2>
       <ul>
-        <li v-for="(item, index) in carrito" :key="index">
+        <li v-for="(item, index) in carrito" :key="index" class="carrito-item">
           {{ item.nombre }} - ${{ item.precio }}
+        <button @click="eliminarDelCarrito(index)" class="btn-eliminar">❌</button>
         </li>
       </ul>
       <p><strong>Total:</strong> ${{ totalSinIVA }}</p>
@@ -87,6 +88,12 @@ export default {
       this.carrito = [];
       this.cerrarModal();
     }, 
+    eliminarDelCarrito(index){
+      this.carrito.splice(index,1);
+
+
+    },
+
     realizarCompra(){
       if (this.carrito.length === 0) {
         alert('El carrito esta vacio ');
@@ -107,6 +114,8 @@ export default {
 
   // 🔽 Guardar de nuevo en localStorage
       localStorage.setItem('historialCompras', JSON.stringify(historial));
+      localStorage.setItem('carrito', JSON.stringify(this.carrito));
+
 
   // ✅ Confirmación al usuario
       alert(`¡Gracias por tu compra! Total con IVA: $${total}`);
@@ -252,5 +261,29 @@ button:hover {
     flex-direction: column;
     gap: 10px;
   }
+}.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
 }
+
+.btn-eliminar {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: transparent;
+  transform: scale(1.2);
+}
+
+
 </style>
