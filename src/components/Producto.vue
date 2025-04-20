@@ -1,6 +1,7 @@
 <template>
     
     <div class="card">
+        <img :src="producto.imagen" alt="Imagen del producto" class="imagen-producto" />
         <h3>{{producto.nombre}}</h3>
         <p>Precio: ${{producto.precio}}</p>
         <button @click="agregarAlCarrito">+ Carrito</button>
@@ -23,6 +24,7 @@ export default {
 .card {
     display: flex;
     flex-direction: column;
+    align-items: center;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 16px;
@@ -42,8 +44,18 @@ button {
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  width: 140px;
+  
 }
 button:hover {
   background-color: #36976d;
+}
+.imagen-producto {
+   width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
 }
 </style>

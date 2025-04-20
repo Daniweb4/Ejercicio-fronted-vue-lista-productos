@@ -59,14 +59,14 @@ export default {
   data(){
     return{
       productos:[
-        {nombre:'Camisa', precio:30},
-        {nombre:'Pantalon', precio:35},
-        {nombre:'Abrigo', precio:15},
-        {nombre:'Medias', precio:2},
-        {nombre:'Blusas', precio:5},
-        {nombre:'Faldas', precio:10},
-        {nombre:'Boxer',precio:3},
-        {nombre:'Camisetas',precio:15}
+        {imagen:'https://th.bing.com/th/id/OIP.Lv5zW3tlQSzO3vfK28IphQHaJE?w=225&h=276&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2', nombre:'Camisa', precio:30},
+        {imagen: 'https://th.bing.com/th/id/OIP.w4f13DiYjMlDGpNF8GZZwgHaKx?w=135&h=197&c=7&r=0&o=5&dpr=1.5&pid=1.7', nombre:'Pantalon', precio:35},
+        {imagen: 'https://i.pinimg.com/originals/70/b3/9e/70b39e4860ffeb92eaa40661ddfb4db1.jpg',nombre:'Abrigo', precio:15},
+        {imagen: 'https://th.bing.com/th/id/OIP.3KWjQCgAqj1lB6Agy42i0QHaJ4?w=149&h=199&c=7&r=0&o=5&dpr=1.5&pid=1.7', nombre:'Medias', precio:2},
+        {imagen: 'https://th.bing.com/th/id/OIP.QQ-8LePnDK0-qUDMcx1GJwHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.5&pid=1.7' ,nombre:'Blusas', precio:5},
+        {imagen: 'https://th.bing.com/th/id/OIP.ZXJnmLUEcq29SkppLUxPDwHaKz?w=207&h=301&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2' ,nombre:'Faldas', precio:10},
+        {imagen:'https://th.bing.com/th/id/OIP.EMf8FQUP7AvlTAjzOG5pLQHaFS?w=295&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2',nombre:'Boxer',precio:3},
+        {imagen:'https://th.bing.com/th/id/OIP.PIM-SqNVjVFhLu6myp100wHaIe?w=233&h=267&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2',nombre:'Camisetas',precio:15}
       ],
       carrito:[],
       mostrarCarrito: false,
